@@ -8,6 +8,7 @@ public class Cliente {
     private String nome;
     private String cpf;
     private String endereco;
+    private Carrinho carrinho;
 
     public Cliente(String nome, String cpf) {
         this.nome = nome;
