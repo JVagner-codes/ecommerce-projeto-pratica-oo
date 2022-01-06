@@ -13,5 +13,14 @@ public class Cliente {
     public Cliente(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
+        this.carrinho = new Carrinho();
+    }
+
+    public void addProdutoNoMeuCarrinho (Produto produto) {
+        this.carrinho.addProdutoNoCarrinho(produto);
+    }
+
+    public void removerProdutoDoMeuCarrinho (Produto produto) {
+        this.carrinho.removerProdutoDoCarrinho(produto);
     }
 }

@@ -15,4 +15,14 @@ public class Produto {
         this.valor = valor;
         this.codigoProduto = codigoProduto;
     }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "nomeProduto='" + nomeProduto + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", valor=" + valor +
+                ", codigoProduto=" + codigoProduto +
+                '}';
+    }
 }

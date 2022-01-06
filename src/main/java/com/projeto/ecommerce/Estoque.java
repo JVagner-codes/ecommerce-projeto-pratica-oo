@@ -17,16 +17,32 @@ public class Estoque {
     }
 
     public void removerProduto(int codigoDoProduto) {
-        Produto produtoASeRemover = pesquisarProduto(codigoDoProduto);
+        Produto produtoASeRemover = pesquisarProdutoPVD(codigoDoProduto);
         this.produtosEmEstoqueEQuantidade.remove(produtoASeRemover);
     }
 
+    public int quantidadeProdutoEmEstoque(int codigoDoProduto) {
+        Produto produto = pesqusarProduto(codigoDoProduto);
+        return produtosEmEstoqueEQuantidade.get(produto);
+    }
+
     public void mudarQuantidadeEmEstoqueDoProduto(int codigoDoProduto, int novaQuantidade) {
-        Produto produtoASeAtualizar = pesquisarProduto(codigoDoProduto);
+        Produto produtoASeAtualizar = pesquisarProdutoPVD(codigoDoProduto);
         produtosEmEstoqueEQuantidade.put(produtoASeAtualizar, novaQuantidade);
     }
 
-    private Produto pesquisarProduto(int codigoDoProduto) {
+    public Produto pesqusarProduto(int codigoDoProduto) {
+        return pesquisarProdutoPVD(codigoDoProduto);
+    }
+
+    public void apresentarEstoque() {
+        produtosEmEstoqueEQuantidade.forEach((produto, quant) -> {
+            System.out.println("Produto: " + produto);
+            System.out.println("Quantidade: " + quant);
+        });
+    }
+
+    private Produto pesquisarProdutoPVD(int codigoDoProduto) {
         Produto produtoEncontrado = null;
         Set<Produto> produtos = produtosEmEstoqueEQuantidade.keySet();
         for (Produto p: produtos) {
